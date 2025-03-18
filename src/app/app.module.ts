@@ -13,12 +13,32 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './home/pages/about/about.component';
+import { ContactComponent } from './home/pages/contact/contact.component';
+import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './home/home.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+// Import FontAwesomeModule
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegistrationComponent } from './auth/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +49,15 @@ import { MatListModule } from '@angular/material/list';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
