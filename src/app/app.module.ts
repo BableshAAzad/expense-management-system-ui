@@ -14,23 +14,26 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutComponent } from './home/pages/about/about.component';
-import { ContactComponent } from './home/pages/contact/contact.component';
-import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { HttpClientModule } from '@angular/common/http';
 
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './home/pages/about/about.component';
+import { ContactComponent } from './home/pages/contact/contact.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
+
+// protected components
+import { AdminComponent } from './home/admin/admin.component';
 
 // Import FontAwesomeModule
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RegistrationComponent } from './auth/registration/registration.component';
-import { AdminComponent } from './home/admin/admin.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,7 @@ import { AdminComponent } from './home/admin/admin.component';
     AboutComponent,
     ContactComponent,
     RegistrationComponent,
-    AdminComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
