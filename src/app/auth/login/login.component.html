@@ -3,35 +3,36 @@
         <mat-card-content class="text-center text-2xl text-blue-500">Login</mat-card-content>
 
         <div class="text-center mt-5">
-            <mat-form-field class="w-full pl-4 pr-4 ">
-                <mat-label>Username</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field class="w-full pl-4 pr-4 ">
-                <mat-label>Username</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <section class="flex justify-start ml-4">
-                <mat-form-field>
-                    <mat-label>Captcha</mat-label>
-                    <input matInput placeholder="Placeholder" formControlName="captcha">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <mat-form-field class="w-full pl-4 pr-4 ">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" autocomplete="username" formControlName="username">
                 </mat-form-field>
 
-                <button mat-icon-button type="button" color="primary">
-                    <mat-icon class="mat-18">autorenew</mat-icon>
-                </button>
+                <mat-form-field class="w-full pl-4 pr-4 ">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" autocomplete="password" formControlName="password">
+                </mat-form-field>
 
-                <div class="">
-                    <span #captchaContainer></span>
-                </div>
-            </section>
+                <section class="flex justify-start ml-4">
+                    <mat-form-field>
+                        <mat-label>Captcha</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="captcha">
+                    </mat-form-field>
 
-            <section class="mb-10">
-                <button mat-raised-button class="border-radius-btn">Login</button>
-            </section>
+                    <button mat-icon-button type="button" color="primary"  (click)="getCaptcha()">
+                        <mat-icon class="mat-18">autorenew</mat-icon>
+                    </button>
 
+                    <div class="">
+                        <span #captchaContainer></span>
+                    </div>
+                </section>
+
+                <section class="mb-10">
+                    <button mat-raised-button class="border-radius-btn">Login</button>
+                </section>
+            </form>
         </div>
     </mat-card>
 

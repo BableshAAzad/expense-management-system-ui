@@ -45,10 +45,8 @@ export class RegistrationComponent {
 
   getCaptcha() {
     this.dataService.getData('captcha').subscribe((res: any) => {
-      //if (res.error === false) {
       this.dataContainer.nativeElement.innerHTML = res.data;
       this.generatedCaptcha = res.text;
-      //}
     });
   }
 

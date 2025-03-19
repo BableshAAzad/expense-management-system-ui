@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Import FontAwesomeModule
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { AdminComponent } from './home/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     AboutComponent,
     ContactComponent,
     RegistrationComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
