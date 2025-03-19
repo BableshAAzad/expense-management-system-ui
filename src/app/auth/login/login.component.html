@@ -13,9 +13,25 @@
                 <input matInput>
             </mat-form-field>
 
+            <section class="flex justify-start ml-4">
+                <mat-form-field>
+                    <mat-label>Captcha</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="captcha">
+                </mat-form-field>
+
+                <button mat-icon-button type="button" color="primary">
+                    <mat-icon class="mat-18">autorenew</mat-icon>
+                </button>
+
+                <div class="">
+                    <span #captchaContainer></span>
+                </div>
+            </section>
+
             <section class="mb-10">
                 <button mat-raised-button class="border-radius-btn">Login</button>
             </section>
+
         </div>
     </mat-card>
 

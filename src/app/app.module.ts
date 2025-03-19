@@ -24,6 +24,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+
 
 // Import FontAwesomeModule
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -38,7 +40,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    RegistrationComponent
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     ReactiveFormsModule,
     MatDividerModule,
     MatCheckboxModule,
+    HttpClientModule,
     
   ],
   providers: [],
