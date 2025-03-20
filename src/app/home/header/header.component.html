@@ -14,10 +14,23 @@
             <button mat-button (click)="navigateTo('/about')" style="font-size: 1.1rem; color: white;">About</button>
         </div>
 
-        <div>
+        <!-- <div>
             <button mat-button (click)="navigateTo('/login')" style="font-size: 1.1rem; color: white;">
                 <fa-icon [icon]="faUser" class="mr-0.5"></fa-icon>
                 Login
+            </button>
+        </div> -->
+
+        <div>
+            <button mat-button *ngIf="!authService.isLoggedIn" (click)="navigateTo('/login')"
+                style="font-size: 1.1rem; color: white;">
+                <fa-icon [icon]="faUser" class="mr-0.5"></fa-icon>
+                Login
+            </button>
+            <button mat-button *ngIf="authService.isLoggedIn" (click)="logout()"
+                style="font-size: 1.1rem; color: white;">
+                <fa-icon [icon]="faSignOutAlt" class="mr-0.5"></fa-icon>
+                Logout
             </button>
         </div>
     </section>
