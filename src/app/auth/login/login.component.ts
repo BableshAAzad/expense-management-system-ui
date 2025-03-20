@@ -62,19 +62,19 @@ export class LoginComponent {
 
       this.dataService.postData('login', this.loginForm.value).subscribe(
         (res: any) => {
-          console.log("Response:", res);
+          // console.log("Response:", res);
 
           if (res.error) {
             this.popUp.popup("error", res.error.error || "Login failed try again", 5000);
           } else if (res.data) {
-            console.log("res:", res);
+            // console.log("res:", res);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('userData', JSON.stringify(res.data));
             this.popUp.popup("success", res.message || "Login successfully done", 5000);
 
             switch (res.data['role']) {
               case "admin":
-                this.router.navigate(['/about']);
+                this.router.navigate(['/admin']);
                 break;
               case "user":
                 this.router.navigate(['/']);

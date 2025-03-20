@@ -14,23 +14,30 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutComponent } from './home/pages/about/about.component';
-import { ContactComponent } from './home/pages/contact/contact.component';
-import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { HttpClientModule } from '@angular/common/http';
 
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './home/pages/about/about.component';
+import { ContactComponent } from './home/pages/contact/contact.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
+
+// protected components
+import { AdminComponent } from './home/admin/admin.component';
 
 // Import FontAwesomeModule
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RegistrationComponent } from './auth/registration/registration.component';
-import { AdminComponent } from './home/admin/admin.component';
+
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { DatePipe } from '@angular/common';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +49,7 @@ import { AdminComponent } from './home/admin/admin.component';
     AboutComponent,
     ContactComponent,
     RegistrationComponent,
-    AdminComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +69,21 @@ import { AdminComponent } from './home/admin/admin.component';
     MatDividerModule,
     MatCheckboxModule,
     HttpClientModule,
-    
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('token');
+        },
+        // Uncomment if you need to set domains
+        // whitelistedDomains: ['localhost:3000'],
+        // blacklistedRoutes: ['http://localhost:3000/auth/login']
+      }
+    }),
   ],
-  providers: [],
+  providers: [DatePipe,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
