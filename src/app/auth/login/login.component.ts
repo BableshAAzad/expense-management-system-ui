@@ -70,7 +70,7 @@ export class LoginComponent {
             // console.log("res:", res);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('userData', JSON.stringify(res.data));
-            this.popUp.popup("success", res.message || "Login successfully done", 5000);
+            // this.popUp.popup("success", res.message || "Login successfully done", 5000);
 
             switch (res.data['role']) {
               case "admin":
