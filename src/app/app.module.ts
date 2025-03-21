@@ -38,6 +38,7 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { DatePipe } from '@angular/common';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     AboutComponent,
     ContactComponent,
     RegistrationComponent,
-    AdminComponent
+    AdminComponent,
+    ErrorComponent,
+  
   ],
   imports: [
     BrowserModule,

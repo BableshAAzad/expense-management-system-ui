@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, title: "Expense Management System" },
@@ -24,7 +25,9 @@ const routes: Routes = [
     'canActivate': [AdminGuard],
   },
   // { path: '', redirectTo: '/', pathMatch: 'full' }, // Default route (redirect to home)
-  { path: '**', redirectTo: '/' }
+  // { path: '**', redirectTo: '/' }
+  { path: '**', component: ErrorComponent }
+
 ];
 
 @NgModule({
