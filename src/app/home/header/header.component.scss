@@ -1,0 +1,27 @@
+/* Target mat-button inside active-link */
+.active-link {
+    background-color: #4CAF50 !important;
+    /* Use !important to override Angular Material styles */
+    border-radius: 4px;
+    /* Optional: to give a rounded corner effect */
+    padding: 0.4rem;
+    border-radius: 20px 10px;
+
+}
+
+.active-link:hover {
+    background-color: #3b8e3f !important;
+    /* Slightly darker color on hover */
+    box-shadow: 1px 1px 2px cyan;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    color: white;
+    margin-right: 1rem;
+
+}
+
+.nav-link:hover{
+    color: blueviolet;
+}

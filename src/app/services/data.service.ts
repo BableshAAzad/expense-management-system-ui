@@ -8,28 +8,40 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 export class DataService {
 
   baseUrl: any = environment.baseUrl;
+  
   constructor(private http: HttpClient) { }
 
   getData(functionName: any) {
-    return this.http.get(this.baseUrl + functionName)
+    return this.http.get(this.baseUrl + functionName, { withCredentials: true });
   }
 
-  // postData(functionName: any, data: any) {
-  //   return this.http.post(this.baseUrl + functionName, data)
-  // }
+  deleteData(functionName: any) {
+    return this.http.delete(this.baseUrl + functionName, { withCredentials: true });
+  }
 
   postData(functionName: any, data: any) {
     // Convert data to HttpParams (x-www-form-urlencoded format)
     const params = new HttpParams({ fromObject: data });
 
     // Set headers
-    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
 
     // Make POST request with x-www-form-urlencoded data
-    return this.http.post(this.baseUrl + functionName, params.toString(), { headers });
+    return this.http.post(this.baseUrl + functionName, params.toString(), { headers, withCredentials: true });
   }
 
-  updateData(functionName: any, data: any) {
-    return this.http.put(this.baseUrl + functionName, data)
+  putData(functionName: any, data: any) {
+    // Convert data to HttpParams (x-www-form-urlencoded format)
+    const params = new HttpParams({ fromObject: data });
+
+    // Set headers
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+
+    // Make PUT request with x-www-form-urlencoded data
+    return this.http.put(this.baseUrl + functionName, params.toString(), { headers, withCredentials: true });
   }
 }

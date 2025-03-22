@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 
+
 const adminRoutes: Routes = [
     {
         path: '',
@@ -11,7 +12,7 @@ const adminRoutes: Routes = [
             {
                 path: 'users',
                 component: UsersComponent,
-                title: 'Users List - EMS'
+                title: 'Users List - Expense Management System'
             }
         ]
     }
