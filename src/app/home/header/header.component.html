@@ -3,16 +3,16 @@
         Expense Management System
     </section>
     <section class="flex flex-row">
-        <div>
-            <button mat-button (click)="navigateTo('/')" style="font-size: 1.1rem; color: white;">
-                <fa-icon [icon]="faHome" class="mr-0.5"></fa-icon>
+        <!-- <div>
+            <button mat-button (click)="navigateTo('/')" routerLinkActive="active-link"  style="font-size: 1.1rem; color: white;">
+                <fa-icon [icon]="faHome" class=""></fa-icon>
                 Home
             </button>
         </div>
 
         <div>
-            <button mat-button (click)="navigateTo('/about')" style="font-size: 1.1rem; color: white;">About</button>
-        </div>
+            <button mat-button (click)="navigateTo('/about')" routerLinkActive="active-link"  style="font-size: 1.1rem; color: white;">About</button>
+        </div> -->
 
         <!-- <div>
             <button mat-button (click)="navigateTo('/login')" style="font-size: 1.1rem; color: white;">
@@ -22,16 +22,47 @@
         </div> -->
 
         <div>
-            <button mat-button *ngIf="!authService.isLoggedIn" (click)="navigateTo('/login')"
+            <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-link">
+                <fa-icon [icon]="faHome" class=""></fa-icon>
+                Home
+            </a>
+        </div>
+
+        <div>
+            <a routerLink="/about" routerLinkActive="active-link" class="nav-link">
+                <fa-icon [icon]="faCircleInfo" class=""></fa-icon>
+                About
+            </a>
+        </div>
+
+        <div>
+            <a *ngIf="authService.isLoggedIn" routerLink="/admin" routerLinkActive="active-link" class="nav-link">
+                <fa-icon [icon]="faUserShield" class=""></fa-icon>
+                Admin
+            </a>
+        </div>
+
+        <div>
+            <!-- <button mat-button *ngIf="!authService.isLoggedIn" routerLinkActive="active-link" (click)="navigateTo('/login')"
                 style="font-size: 1.1rem; color: white;">
-                <fa-icon [icon]="faUser" class="mr-0.5"></fa-icon>
+                <fa-icon [icon]="faUser" class=""></fa-icon>
                 Login
             </button>
             <button mat-button *ngIf="authService.isLoggedIn" (click)="logout()"
                 style="font-size: 1.1rem; color: white;">
-                <fa-icon [icon]="faSignOutAlt" class="mr-0.5"></fa-icon>
+                <fa-icon [icon]="faSignOutAlt" class=""></fa-icon>
                 Logout
-            </button>
+            </button> -->
+
+            <a *ngIf="!authService.isLoggedIn" routerLinkActive="active-link" routerLink="/login" class="nav-link">
+                <fa-icon [icon]="faUser" class=""></fa-icon>
+                Login
+            </a>
+            <a *ngIf="authService.isLoggedIn" (click)="logout()" class="nav-link">
+                <fa-icon [icon]="faSignOutAlt" class=""></fa-icon>
+                Logout
+            </a>
         </div>
     </section>
 </nav>

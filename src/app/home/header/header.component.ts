@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { faHome, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';  // Import the icon
+import { faCircleInfo, faHome, faSignOutAlt, faUser, faUserShield } from '@fortawesome/free-solid-svg-icons';  // Import the icon
 import { AuthService } from 'src/app/services/auth.service';
 import { LogoutService } from 'src/app/services/logout.service';
 
@@ -13,6 +13,8 @@ export class HeaderComponent {
   faHome = faHome
   faUser = faUser
   faSignOutAlt = faSignOutAlt
+  faUserShield = faUserShield
+  faCircleInfo = faCircleInfo
   constructor(
     private router: Router,
     public authService: AuthService,
