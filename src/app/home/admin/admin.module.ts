@@ -4,6 +4,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { UsersComponent } from './users/users.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { MatTableModule } from '@angular/material/table';
     AdminRoutingModule,
     MatPaginatorModule,
     MatTableModule, 
+    MatButtonModule,
     
   ]
 })
