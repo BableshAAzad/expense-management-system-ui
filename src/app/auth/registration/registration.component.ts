@@ -72,13 +72,13 @@ export class RegistrationComponent {
 
       this.dataService.postData('registration', this.registrationForm.value).subscribe(
         (res: any) => {
-          console.log("Response:", res);
+          // console.log("Response:", res);
 
           if (res.error) {
             this.popUp.popup("error", "Registration Failed", 5000);
           } else {
             this.registrationForm.reset();
-            this.popUp.popup("success", res.message, 5000);
+            this.popUp.popup("success", res.message, 20000);
           }
         },
         (error) => {
@@ -87,7 +87,7 @@ export class RegistrationComponent {
         }
       );
     } else {
-      console.log("Form is invalid");
+      this.popUp.popup("error", "All fields are required", 10000);
     }
   }
 
