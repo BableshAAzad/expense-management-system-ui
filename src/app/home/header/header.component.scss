@@ -23,5 +23,13 @@
 }
 
 .nav-link:hover{
-    color: blueviolet;
+    color: rgb(199, 154, 240);
+}
+
+.navbar-color{
+    background: linear-gradient(to right, rgba(128, 0, 128, 0.7), rgba(0, 0, 255, 0.7));
+    position: fixed !important;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
 }
