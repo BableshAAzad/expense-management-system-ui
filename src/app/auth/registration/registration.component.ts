@@ -57,6 +57,7 @@ export class RegistrationComponent {
       // Check if entered captcha matches generated captcha
       if (this.registrationForm.value.captcha !== txtCaptcha) {
         this.popUp.popup("error", "Wrong Captcha try again", 5000);
+        this.getCaptcha(); // refresh captcha
         return;
       }
 
@@ -70,15 +71,18 @@ export class RegistrationComponent {
       const passwordConfirmation = CryptoJS.AES.encrypt(this.registrationForm.value.passwordConfirmation, this.passwordKey).toString();
       this.registrationForm.patchValue({ password, passwordConfirmation });
 
+      this.getCaptcha(); // refresh captcha
       this.dataService.postData('registration', this.registrationForm.value).subscribe(
         (res: any) => {
-          console.log("Response:", res);
+          // console.log("Response:", res);
 
           if (res.error) {
             this.popUp.popup("error", "Registration Failed", 5000);
           } else {
             this.registrationForm.reset();
-            this.popUp.popup("success", res.message, 5000);
+            this.popUp.popup("success", res.message, 20000);
+            // Navigate to login page
+            this.router.navigate(['/login']);
           }
         },
         (error) => {
@@ -87,7 +91,7 @@ export class RegistrationComponent {
         }
       );
     } else {
-      console.log("Form is invalid");
+      this.popUp.popup("error", "All fields are required", 10000);
     }
   }
 
