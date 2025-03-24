@@ -1,11 +1,12 @@
+import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class UserGuard implements CanActivate {
 
   constructor(
     private router: Router,
@@ -39,8 +40,8 @@ export class AdminGuard implements CanActivate {
       // console.log("tokenExpiredTime > currentTime : ", tokenExpiredTime > currentTime);
       if (tokenExpiredTime > currentTime && currentUserData) {
         // console.log("currentUserData : ", currentUserData);
-        if (currentUserData.role === "admin") {
-          // this.router.navigate(['/admin']);
+        if (currentUserData.role === "user") {
+          // this.router.navigate(['/user']);
           return true;
         } else {
           this.router.navigate(['/']);

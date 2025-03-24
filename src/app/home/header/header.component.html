@@ -19,9 +19,17 @@
         </div>
 
         <div>
-            <a *ngIf="authService.isLoggedIn" routerLink="/admin" routerLinkActive="active-link" class="nav-link">
+            <a *ngIf="authService.isLoggedIn && authService.currentUserData.role ==='admin'" routerLink="/admin"
+                routerLinkActive="active-link" class="nav-link">
                 <fa-icon [icon]="faUserShield" class=""></fa-icon>
-                Admin
+                <!-- Admin -->
+                {{authService.currentUserData.username}}
+            </a>
+            <a *ngIf="authService.isLoggedIn && authService.currentUserData.role ==='user'" routerLink="/user"
+                routerLinkActive="active-link" class="nav-link">
+                <fa-icon [icon]="faUserShield" class=""></fa-icon>
+                <!-- User -->
+                {{authService.currentUserData.username}}
             </a>
         </div>
 

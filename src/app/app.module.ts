@@ -39,6 +39,7 @@ import { DatePipe } from '@angular/common';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ErrorComponent } from './error/error.component';
+import { UserComponent } from './home/user/user.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ErrorComponent } from './error/error.component';
     RegistrationComponent,
     AdminComponent,
     ErrorComponent,
+    UserComponent,
   
   ],
   imports: [
