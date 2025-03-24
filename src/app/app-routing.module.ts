@@ -7,27 +7,26 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorComponent } from './error/error.component';
+import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, title: "Expense Management System" },
   { path: 'about', component: AboutComponent, title: "About - Expense Management System" },
   { path: 'login', component: LoginComponent, title: "Login - Expense Management System", canActivate: [AuthGuard] },
   { path: 'registration', component: RegistrationComponent, title: "Registration - Expense Management System", canActivate: [AuthGuard] },
-  // {
-  //   path: 'admin', component: AdminComponent, title: "Admin - Expense Management System", children: [
-  //     { path: 'users', component: UsersComponent, title: "Users List - Expense Management System", }
-  //   ]
-  // },
   {
     path: 'admin',
     title: "Admin - Expense Management System",
     loadChildren: () => import('./home/admin/admin.module').then(m => m.AdminModule), // Lazy load AdminModule
     'canActivate': [AdminGuard],
   },
-  // { path: '', redirectTo: '/', pathMatch: 'full' }, // Default route (redirect to home)
-  // { path: '**', redirectTo: '/' }
+  {
+    path: 'user',
+    title: "User - Expense Management System",
+    loadChildren: () => import('./home/user/user.module').then(u => u.UserModule), // Lazy load UserModule
+    'canActivate': [UserGuard],
+  },
   { path: '**', title: "Error - Expense Management System", component: ErrorComponent }
-
 ];
 
 @NgModule({

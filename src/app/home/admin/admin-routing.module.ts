@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { UsersComponent } from './users/users.component';
-
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminsComponent } from './admins/admins.component';
 
 const adminRoutes: Routes = [
     {
@@ -10,9 +10,14 @@ const adminRoutes: Routes = [
         component: AdminComponent,
         children: [
             {
-                path: 'users',
-                component: UsersComponent,
-                title: 'Users List - Expense Management System'
+                path: 'dashboard',
+                component: AdminDashboardComponent,
+                title: 'Admin Dashboard - Expense Management System'
+            },
+            {
+                path: 'admins',
+                component: AdminsComponent,
+                title: 'Admins - Expense Management System'
             }
         ]
     }

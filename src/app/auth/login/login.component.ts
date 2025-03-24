@@ -52,6 +52,7 @@ export class LoginComponent {
 
       // Check if entered captcha matches generated captcha
       if (this.loginForm.value.captcha !== txtCaptcha) {
+        this.getCaptcha(); // refresh captcha
         this.popUp.popup("error", "Wrong Captcha try again", 5000);
         return;
       }
@@ -65,19 +66,22 @@ export class LoginComponent {
           // console.log("Response:", res);
 
           if (res.error) {
+            this.getCaptcha(); // refresh captcha
             this.popUp.popup("error", res.error.error || "Login failed try again", 5000);
           } else if (res.data) {
             // console.log("res:", res);
-            localStorage.setItem('token', res.data.token);
+            // localStorage.setItem('token', res.data.token);
             localStorage.setItem('userData', JSON.stringify(res.data));
             // this.popUp.popup("success", res.message || "Login successfully done", 5000);
+            let nowDate = new Date().getTime();
+            localStorage.setItem("tokenExpiredTime", new Date(nowDate + (res.data.tokenExpiration * 1000)).toString());
 
             switch (res.data['role']) {
               case "admin":
                 this.router.navigate(['/admin']);
                 break;
               case "user":
-                this.router.navigate(['/']);
+                this.router.navigate(['/user']);
                 break;
               default:
                 this.popUp.popup("error", "Login failed please check username or password", 5000);
@@ -86,11 +90,13 @@ export class LoginComponent {
           }
         },
         (error) => {
+          this.getCaptcha(); // refresh captcha
           console.error("Login API Error:", error);
           this.popUp.popup("error", error?.error?.error || "Server error try again latter", 5000);
         }
       );
     } else {
+      this.getCaptcha(); // refresh captcha
       console.log("Form is invalid");
     }
   }

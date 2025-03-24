@@ -19,7 +19,10 @@ export class HeaderComponent {
     private router: Router,
     public authService: AuthService,
     public logoutService: LogoutService
-  ) { }
+  ) {
+    // console.log("authService : ", this.authService.isLoggedIn);
+  }
+
 
   navigateTo(route: string) {
     this.router.navigate([route]);
