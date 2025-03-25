@@ -6,12 +6,14 @@ import { MatTableModule } from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminsComponent } from './admins/admins.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
-    AdminsComponent
+    AdminsComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { AdminsComponent } from './admins/admins.component';
     MatTableModule, 
     MatButtonModule,
     AdminRoutingModule,
+    MatGridListModule
   ]
 })
 export class AdminModule { }
