@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminsComponent } from './admins/admins.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const adminRoutes: Routes = [
     {
@@ -18,7 +19,12 @@ const adminRoutes: Routes = [
                 path: 'admins',
                 component: AdminsComponent,
                 title: 'Admins - Expense Management System'
-            }
+            },
+            {
+                path: 'profile',
+                component: ProfileComponent,
+                title: 'Profile - Expense Management System'
+            },
         ]
     }
 ];
