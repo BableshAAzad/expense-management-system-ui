@@ -1,6 +1,9 @@
 <nav class="flex flex-row justify-between navbar-color text-white p-3">
     <section class="text-2xl">
         Expense Management System
+        <span class="">
+            <fa-icon [icon]="faGlobe" class="text-xs {{isOnline ? 'text-green-500' : 'text-red-500'}}"></fa-icon>
+        </span>
     </section>
     <section class="flex flex-row">
         <div>
@@ -53,6 +56,12 @@
                 <fa-icon [icon]="faSignOutAlt" class=""></fa-icon>
                 Logout
             </a>
+        </div>
+
+        <div>
+            <button class="" (click)="toggleDarkMode()">
+                <fa-icon [icon]="faCircleHalfStroke" class="text-slate-900 dark:text-slate-50"></fa-icon>
+            </button>
         </div>
     </section>
 </nav>

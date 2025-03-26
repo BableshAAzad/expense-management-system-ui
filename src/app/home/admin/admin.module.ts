@@ -8,6 +8,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminsComponent } from './admins/admins.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProfileComponent } from './profile/profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatTableModule, 
     MatButtonModule,
     AdminRoutingModule,
-    MatGridListModule
+    MatGridListModule,
+    FontAwesomeModule,
   ]
 })
 export class AdminModule { }
