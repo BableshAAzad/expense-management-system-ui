@@ -1,8 +1,119 @@
-<section class="full-screen-section">
+<!-- <section class="full-screen-section">
     <mat-grid-list cols="2" rowHeight="2:1">
         <mat-grid-tile>1</mat-grid-tile>
         <mat-grid-tile>2</mat-grid-tile>
         <mat-grid-tile>3</mat-grid-tile>
         <mat-grid-tile>4</mat-grid-tile>
     </mat-grid-list>
-</section>
+</section> -->
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="row-span-1 md:row-span-3">
+        <div class="p-2">
+            <img src="../../../../assets/images/user.png" class=" ml-auto mr-auto profile-image" alt="user" />
+            <div class="flex flex-col items-center">
+                <Button class="m-2" disabled>
+                    Logout from All Devices
+                </Button>
+                <Button class="m-2" disabled>
+                    Logout From Other Devices
+                </Button>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-1 md:col-span-2">
+        <section class="p-2">
+            <h5 class="text-xl font-bold tracking-tight text-gray-900 dark:text-slate-500">
+                Username : <span class="dark:text-slate-200">
+                   {{user.username}}
+                </span>
+            </h5>
+            <h5 class="text-xl font-bold tracking-tight text-gray-900 dark:text-slate-500">
+                Role : <span class="dark:text-slate-200">
+                    {{user.role}}
+                </span>
+            </h5>
+            <h5 class="text-xl font-bold tracking-tight text-gray-900 dark:text-slate-500">
+                UserId : <span class="dark:text-slate-200">
+                    {{user.userId}}
+                </span>
+            </h5>
+            <h5 class="text-xl font-bold tracking-tight text-gray-900 dark:text-slate-500">
+                Email : <span class="dark:text-slate-200">
+                    {{userInfo?.email}}
+                </span>
+            </h5>
+            <Button onClick={handleUserUpdate} class="mt-2">
+                Edit Email or Password
+            </Button>
+        </section>
+    </div>
+
+    <div class="flex items-center text-2xl text-purple-700">
+        <span>Address</span>
+        <Button class="ml-2">
+            Add Address
+        </Button>
+    </div>
+
+    <div
+        class="row-span-1 md:row-span-2 col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-2">
+        <div class="max-w-sm">
+            <h5 class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                Address
+                <!-- : {address.addressType} -->
+            </h5>
+            <p class="font-mono text-gray-700 dark:text-gray-400">
+                <span class="font-bold">Street and HNO : </span>
+                <!-- {address.streetAddress} -->
+            </p>
+            <p class="font-mono text-gray-700 dark:text-gray-400">
+                <span class="font-bold">Area : </span>
+                <!-- {address.streetAddressAdditional} -->
+            </p>
+            <p class="font-mono text-gray-700 dark:text-gray-400">
+                <span class="font-bold">City : </span>
+                <!-- {address.city} -->
+            </p>
+            <p class="font-mono text-gray-700 dark:text-gray-400">
+                <span class="font-bold">State : </span>
+                <!-- {address.state} -->
+            </p>
+            <p class="font-mono text-gray-700 dark:text-gray-400">
+                <span class="font-bold">Country : </span>
+                <!-- {address.country} - {address.pincode} -->
+            </p>
+            <Button>
+                Edit Address
+            </Button>
+            <hr />
+
+            <section>
+
+                <h5 class="text-base font-bold tracking-tight text-gray-900 dark:text-white mb-1">
+                    <fa-icon [icon]="faMobileRetro" class=""></fa-icon>
+                    Contact :&nbsp;
+                    <span class="text-slate-500">Max-2</span> :
+                    <a class="text-sm text-blue-600 hover:underline" href="#">
+                        Add Contact
+                    </a>
+                </h5>
+
+                <div class="flex justify-around">
+                    <span class="text-sm text-slate-500 dark:text-slate-400">
+                        <!-- {contact.priority} -->
+                    </span>
+                    <span class="text-slate-700 dark:text-slate-300 mr-1">
+                        <!-- {contact.contactNumber} -->
+                    </span>
+                    <a href="/profile-page/addresses/update-contact">
+                        <!-- <FontAwesomeIcon class="text-blue-600" icon={faPenToSquare} /> -->
+                    </a>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+</div>
