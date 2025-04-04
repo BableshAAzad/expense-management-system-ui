@@ -20,3 +20,27 @@ body {
 html.dark body{
     background-color: #1a202c;
 }
+html.dark mat-form-field div div div label{
+   color: rgb(6, 211, 211) !important;
+}
+
+html.dark mat-form-field div div div span{
+    color: #d50303 !important;
+ }
+
+html.dark mat-form-field div div div input{
+    color: #d8e5e5 !important;
+ }
+
+html.dark mat-form-field div div {
+    background-color: #4b555f !important;
+}
+
+.mdc-text-field {
+    padding: 0 !important;
+    padding-left: 0.3rem !important;
+}
+
+.mdc-text-field {
+    padding: 0 !important;
+}
