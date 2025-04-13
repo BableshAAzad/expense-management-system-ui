@@ -3,6 +3,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user.component';
 import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const userRoutes: Routes = [
   {
@@ -18,13 +19,18 @@ const userRoutes: Routes = [
         path: 'users',
         component: UsersComponent,
         title: 'Users - Expense Management System'
-      }
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        title: 'Profile - Expense Management System'
+      },
     ]
   }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(userRoutes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(userRoutes)],
+  exports: [RouterModule]
 })
 export class UserRoutingModule { }

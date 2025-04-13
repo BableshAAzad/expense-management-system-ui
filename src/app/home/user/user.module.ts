@@ -6,18 +6,22 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { UserRoutingModule } from './user-routing.module';
+import { ProfileComponent } from './profile/profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     UserDashboardComponent,
-    UsersComponent
+    UsersComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     MatPaginatorModule,
     MatTableModule, 
     MatButtonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class UserModule { }

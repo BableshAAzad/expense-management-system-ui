@@ -59,21 +59,6 @@ export class AdminsComponent implements AfterViewInit {
     );
   }
 
-  // UPDATE user details
-  // edit(user: any): void {
-  // Make necessary changes to the user object, if any, before sending to the API.
-  // this.dataService.putData(`users/${user.userId}`, user).subscribe(
-  //   (res: any) => {
-  //     console.log('User updated successfully:', res);
-  //     this.getUsers();  // Refresh the list of users
-  //   },
-  //   (err) => {
-  //     console.error('Error updating user:', err);
-  //   }
-  // );
-  // this.updateUserService.updateUser("warning", "Are you want edit?", user);
-  // }
-
   edit(user: any): void {
     this.updateUserService.updateUser("warning", "Are you want edit?", user).subscribe({
       next: (res) => {
