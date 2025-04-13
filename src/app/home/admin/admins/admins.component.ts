@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from 'src/app/services/data.service';
 import { PopupService } from 'src/app/services/popup.service';
+import { UpdateUserService } from 'src/app/services/update-user.service';
 
 @Component({
   selector: 'app-users',
@@ -18,7 +19,8 @@ export class AdminsComponent implements AfterViewInit {
 
   constructor(
     private dataService: DataService,
-    private popUpService: PopupService
+    private popUpService: PopupService,
+    private updateUserService: UpdateUserService
   ) { }
 
   ngOnInit(): void {
@@ -57,18 +59,19 @@ export class AdminsComponent implements AfterViewInit {
     );
   }
 
-  // UPDATE user details
-  update(user: any): void {
-    // Make necessary changes to the user object, if any, before sending to the API.
-    this.dataService.putData(`users/${user.userId}`, user).subscribe(
-      (res: any) => {
-        console.log('User updated successfully:', res);
-        this.getUsers();  // Refresh the list of users
+  edit(user: any): void {
+    this.updateUserService.updateUser("warning", "Are you want edit?", user).subscribe({
+      next: (res) => {
+        this.getUsers(); // Refresh only if successful
       },
-      (err) => {
-        console.error('Error updating user:', err);
+      error: (err) => {
+        console.error("Update failed", err);
+      },
+      complete: () => {
+        // Optional: handle dialog closed without update
       }
-    );
+    });
   }
+
 }
 
