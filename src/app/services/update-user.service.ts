@@ -6,7 +6,6 @@ import * as CryptoJS from 'crypto-js';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -92,4 +91,6 @@ export class UpdateUserService {
       });
     });
   }
+
+  
 }

@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 export class DataService {
 
   baseUrl: any = environment.baseUrl;
-  
+
   constructor(private http: HttpClient) { }
 
   getData(functionName: any) {
@@ -43,5 +43,10 @@ export class DataService {
 
     // Make PUT request with x-www-form-urlencoded data
     return this.http.put(this.baseUrl + functionName, params.toString(), { headers, withCredentials: true });
+  }
+
+  postDataForFile(functionName: any, data: any) {
+    // Make POST request with x-www-form-urlencoded data
+    return this.http.post(this.baseUrl + functionName, data, { withCredentials: true });
   }
 }
